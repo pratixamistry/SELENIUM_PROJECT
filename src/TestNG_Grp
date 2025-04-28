@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+  <test name="Test">
+  <groups>
+  <run>
+  <include name="red"/>
+  </run>
+  </groups>
+    <classes>
+      <class name="com.Testng.TestNG_GRP_18"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+ 

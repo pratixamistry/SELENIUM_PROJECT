@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+   <test name="Test1">
+  <parameter name = "username"  value="standard_user"/>
+  <parameter name = "password"  value="secret_sauce"/>
+    <classes>
+      <class name="com.Testng.TestNG_FB_Para_17"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+  
+  
+  
+  <test name="Test2">
+  <parameter name = "username"  value="problem_user"/>
+  <parameter name = "password"  value="secret_sauce"/>
+    <classes>
+      <class name="com.Testng.TestNG_FB_Para_17"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
