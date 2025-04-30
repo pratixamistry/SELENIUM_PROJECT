@@ -8,8 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Popup_Ads {
+public class ADS_AUTOMATION {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.edge.driver", "D:\\selenium\\msedgedriver.exe");
 		
@@ -17,7 +19,9 @@ public class Popup_Ads {
 		driver.manage().window().maximize();
 		
 		driver.get("https://practice-automation.com/ads/");
-		Thread.sleep(7000);
+		WebDriverWait wait = new WebDriverWait(driver,7);
+		WebElement msg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"popmake-1272\"]/button")));
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id=\"popmake-1272\"]/button")).click();
 		
 		

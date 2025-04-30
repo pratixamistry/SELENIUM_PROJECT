@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 public class window_prac_auto {
 public static void main(String[] args) throws InterruptedException {
+	
 	System.setProperty("webdriver.edge.driver", "D:\\selenium\\msedgedriver.exe");
 	WebDriver driver = new EdgeDriver();
 	driver.manage().window().maximize();
@@ -98,7 +99,7 @@ public static void main(String[] args) throws InterruptedException {
 			
 			
 			
-			driver.close(); 
+			driver.quit();
 			
 		}
 		

@@ -16,28 +16,48 @@ public class slider_Automation {
 		driver.get("https://practice-automation.com/slider/");
 		Thread.sleep(1000);
 		
-		// Locate the slider element
-        WebElement slider = driver.findElement(By.xpath("//*[@id=\"slideMe\"]"));
-        WebElement sliderTrack = driver.findElement(By.className("range-slider__range"));
-        
-        // Get slider width
-        int sliderWidth = sliderTrack.getSize().getWidth();
-        System.out.println("slider width: "+sliderWidth);
-        
-        // Using Actions class to drag slider (drag-and-drop method)
+		
+		
+		//////////////////////////BY  DRAG AND DROP
+		
+		// Locate the slider input element (draggable part)
+        WebElement slider = driver.findElement(By.xpath("//input[@type='range']"));
+
+        // Get the width of the slider track
+        int sliderWidth = slider.getSize().getWidth();
+        System.out.println("Slider width: " + sliderWidth);
+
+        // Create Actions object
         Actions actions = new Actions(driver);
-        //actions.clickAndHold(slider).moveByOffset(sliderWidth / 4, 0).release().perform();
-        actions.clickAndHold(slider).moveByOffset(700, 0).release().perform();
+
+        // Drag the slider by offset (e.g., move 75% of its width)
+        int moveBy = (int)(sliderWidth * 0.75); // Adjust this for different target values
+        actions.clickAndHold(slider).moveByOffset(moveBy, 0).release().perform();
+
+        Thread.sleep(3000); // Observe the change
+		
+		
+		
+		//////////////////////////// BY CLICKING
+		
+//		// Locate the actual slider input element
+//        WebElement sliderInput = driver.findElement(By.xpath("//input[@type='range']"));
+//
+//        // Use JavaScript to set slider value and trigger input event
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript(
+//            "arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input'));", 
+//            sliderInput, "75" // Set value between 0 and 100
+//        );
+//
+//        Thread.sleep(3000); // Observe the result
+
+        //driver.quit();
+		
+       //////////////////////////////////////////////////////////////////////
         
-        // Wait for value update (optional)
-        Thread.sleep(2000);
         
-        // Using JavaScript Executor to directly set value (alternative click method)
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].style.left='50%';", slider);
-        
-        // Wait to observe changes
-        Thread.sleep(2000);
+
 	}
 
 }

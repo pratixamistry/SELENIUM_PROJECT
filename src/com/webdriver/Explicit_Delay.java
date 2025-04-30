@@ -23,7 +23,9 @@ public class Explicit_Delay {
 //		System.out.println("message is: "+msg);
 	
 		WebElement msg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("delay")));
+		//Thread.sleep(2000);
 		System.out.println("msg: "+msg.getText());
+		//driver.close();
 	}
 
 }

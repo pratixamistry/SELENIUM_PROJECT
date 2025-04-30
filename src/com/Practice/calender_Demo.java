@@ -14,7 +14,7 @@ public static void main(String[] args) throws InterruptedException {
 	Thread.sleep(1000);
 	
 	
-	driver.findElement(By.xpath("//*[@id=\"g1065-2-selectorenteradate\"]")).sendKeys("2024-10-10");
+	driver.findElement(By.xpath("//*[@id=\"g1065-2-1-selectorenteradate\"]")).sendKeys("2024-10-10");
 	Thread.sleep(1000);
 //	// Select Month
 //    driver.findElement(By.xpath("//select[@class='ui-datepicker-month']/option[text()='May']")).click();

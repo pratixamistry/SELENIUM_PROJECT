@@ -30,15 +30,12 @@ public class Practice_Automation {
 		Thread.sleep(500);
 		
 		
-		for (int i = 1; i < 6; i++) {
-			driver.findElement(By.id("drink"+i)).click();
-			Thread.sleep(500);
-		}
+		
 		
 		//Scrolling down the page till the element is found
-//		 WebElement Element = driver.findElement(By.xpath("//*[@id=\\\"feedbackForm\\\"]/label[10]")); 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;  //import option choose
-//		js.executeScript("arguments[0].scrollIntoView();",Element);
+		 WebElement Element = driver.findElement(By.xpath("//*[@id=\"body\"]")); 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  //import option choose
+		js.executeScript("arguments[0].scrollIntoView();",Element);
 		
 		// MOUSE ACTION FOR COLOR RADIO BUTTON
 		
@@ -72,6 +69,12 @@ public class Practice_Automation {
 		a3.perform(); 
 		Thread.sleep(1000);
 		
+		// drint  check box
+		for (int i = 1; i < 6; i++) {
+			driver.findElement(By.id("drink"+i)).click();
+			Thread.sleep(500);
+		}
+		
 		//driver.findElement(By.xpath("//*[@id=\"feedbackForm\"]/label[11]")).click();
 		
 		// drop down
@@ -103,25 +106,40 @@ public class Practice_Automation {
 		driver.findElement(By.id("message")).sendKeys("Hi there. I am Pratixa");
 		Thread.sleep(500);
 		
-		WebElement Element = driver.findElement(By.id("submit-btn")); 
-		JavascriptExecutor js = (JavascriptExecutor) driver;  //import option choose
-		js.executeScript("arguments[0].scrollIntoView();",Element);
+//		WebElement Element2 = driver.findElement(By.id("submit-btn")); 
+//		JavascriptExecutor js2 = (JavascriptExecutor) driver;  
+//		js.executeScript("arguments[0].scrollIntoView();",Element);
 		
 //		driver.findElement(By.id("submit-btn")).click();
 //		Thread.sleep(1000);	
-		
-		 WebElement Element1 = driver.findElement(By.id("submit-btn")); 
-		JavascriptExecutor js1 = (JavascriptExecutor) driver;  //import option choose
-			js1.executeScript("arguments[0].scrollIntoView();",Element1);
+		// submit button
+//		 WebElement Element1 = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]")); 
+//		JavascriptExecutor js1 = (JavascriptExecutor) driver;  
+//		System.out.println("yes");
+//			js1.executeScript("arguments[0].scrollIntoView();",Element1);
 			
 		
-		driver.findElement(By.id("submit-btn")).click();
-		Thread.sleep(1000);
+		WebElement Element1 = driver.findElement(By.id("submit-btn")); 
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+
+		// Scroll into view and align to top
+		js.executeScript("arguments[0].scrollIntoView(true);", Element1);
+		
+		Thread.sleep(2000);
+
+		// Then click using JavaScript to avoid interception
+		js.executeScript("arguments[0].click();", Element1);
+		
+		
+		
+//		driver.findElement(By.id("submit-btn")).click();
+//		Thread.sleep(1000);
 		System.out.println("submit button has clicked" );
 		
 		
 		Alert a4=driver.switchTo().alert();
 		System.out.println(a4.getText());
+		Thread.sleep(2000);
 		a4.accept();
 		Thread.sleep(2000);
 		

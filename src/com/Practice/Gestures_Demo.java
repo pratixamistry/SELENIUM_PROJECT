@@ -30,7 +30,9 @@ public static void main(String[] args) throws InterruptedException {
 //    WebElement targetElement1 = driver.findElement(By.xpath("//*[@id=\"post-1023\"]/div/p[1]"));
 //    actions.dragAndDrop(sourceElement1, targetElement1).perform();
 	
-    WebElement targetElement1 = driver.findElement(By.xpath("//*[@id=\"post-1023\"]/div/p[1]"));
+    // //*[@id="moveMe"]/p[2]
+    
+    WebElement targetElement1 = driver.findElement(By.xpath("//*[@id=\"moveMe\"]/p[2]"));
     WebElement targetElement2 = driver.findElement(By.xpath("//*[@id=\"post-1023\"]/div/div[2]"));
     WebElement targetElement3 = driver.findElement(By.xpath("//*[@id=\"post-1023\"]/div/p[1]"));
     actions.dragAndDrop(sourceElement, targetElement1).perform();

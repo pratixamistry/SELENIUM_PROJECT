@@ -19,6 +19,7 @@ public class DynamicWebTable {
 		driver.get("https://demo.guru99.com/test/web-table-element.php");
 		Thread.sleep(1000);
 		// take xpath till th for columns
+		//   //*[@id="leftcontainer"]/table/thead/tr/th[1] click on table anywhere to get xpath
 		List<WebElement> tc_size = driver.findElements(By.xpath("//*[@id=\"leftcontainer\"]/table/thead/tr/th"));
 		System.out.println("no of colums: "+tc_size.size());
 		
