@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Testng.TestNG_FB_Para_17">
+      <class name="com.FW.Guru99LoginTest">
         <methods>
-          <include name="f"/>
+          <include name="testLogin" invocation-numbers="1"/>
         </methods>
-      </class> <!-- com.Testng.TestNG_FB_Para_17 -->
+      </class> <!-- com.FW.Guru99LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

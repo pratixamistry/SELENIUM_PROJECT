@@ -21,6 +21,7 @@ public class DynamicWebTable {
 		// take xpath till th for columns
 		//   //*[@id="leftcontainer"]/table/thead/tr/th[1] click on table anywhere to get xpath
 		List<WebElement> tc_size = driver.findElements(By.xpath("//*[@id=\"leftcontainer\"]/table/thead/tr/th"));
+		
 		System.out.println("no of colums: "+tc_size.size());
 		
 		// take x path till tr only for rows

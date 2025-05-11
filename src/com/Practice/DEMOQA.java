@@ -94,34 +94,34 @@ public class DEMOQA {
         Thread.sleep(1000);
         
         // UPLOAD A FILE
-       WebElement uploadElement = driver.findElement(By.xpath("//*[@id=\"uploadPicture\"]"));
-        uploadElement.sendKeys("C:\\Users\\Kunal\\Desktop\\New folder\\neon-wang-_4ZiLD25hr0-unsplash.jpg");
-        Thread.sleep(1000);
+//       WebElement uploadElement = driver.findElement(By.xpath("//*[@id=\"uploadPicture\"]"));
+//        uploadElement.sendKeys("C:\\Users\\Kunal\\Desktop\\New folder\\neon-wang-_4ZiLD25hr0-unsplash.jpg");
+//        Thread.sleep(1000);
         
         
        
         
         // ADD
-//		driver.findElement(By.id("currentAddress")).sendKeys("MUSCAT");
-//		Thread.sleep(2000);
+		driver.findElement(By.id("currentAddress")).sendKeys("MUSCAT");
+		Thread.sleep(2000);
 //		
-//		 // SELECT STATE        
-//	       driver.findElement(By.xpath("//*[@id=\"state\"]/div/div[1]")).click();
-//	       Thread.sleep(1000);
-//	       driver.findElement(By.xpath("//div[text()='Haryana']")).click();
-//	       Thread.sleep(1000);
+		 // SELECT STATE        
+	       driver.findElement(By.xpath("//*[@id=\"state\"]/div/div[1]")).click();
+	       Thread.sleep(1000);
+	       driver.findElement(By.xpath("//div[text()='Haryana']")).click();
+	       Thread.sleep(1000);
 //	       
 //		//SUBJECTS is a bug
-//
-//	       // CITY
-//		driver.findElement(By.xpath("//*[@id=\"stateCity-wrapper\"]/div[3]")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//div[text()='Panipat']")).click();
-//		Thread.sleep(1000);
-//		
-//		// SUBMIT
-//		driver.findElement(By.id("submit")).click();
-//		Thread.sleep(1000);
+
+	       // CITY
+		driver.findElement(By.xpath("//*[@id=\"stateCity-wrapper\"]/div[3]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[text()='Panipat']")).click();
+		Thread.sleep(1000);
+		
+		// SUBMIT
+		driver.findElement(By.id("submit")).click();
+		Thread.sleep(1000);
 //		
 		
 		//driver.close();

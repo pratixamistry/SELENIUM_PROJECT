@@ -1,7 +1,17 @@
 package com.FW;
 
+/*
+ * Access details to demo site.
+User ID : 	mngr621166
+Password : 	abAmusy
+This access is valid only for 20 days.
+ */
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.sql.Driver;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -10,15 +20,18 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
-public class DataDrivenDemo {
+public class DataDrivenDemo_ASS {
 	
 	// function to read data
-	public String[] [] readData() throws InvalidFormatException, IOException {
+	public String[] [] readData() throws Exception {
 		String[][] data = null;
 		
 		// 1. select file path
@@ -69,7 +82,7 @@ public class DataDrivenDemo {
 	}
 	
 	@Test
-	public void test() throws InterruptedException, InvalidFormatException, IOException {
+	public void test() throws Exception {
 		String[][] data=readData();
 
 
@@ -78,27 +91,66 @@ public class DataDrivenDemo {
 				"D:\\selenium\\chromedriver-win64\\chromedriver.exe");
 
 
+		
+		
 		for (int i = 0; i < data.length; i++) {
 			
-			
-			// open empty browser
-			WebDriver driver = new ChromeDriver();
-		driver.get("https://www.demo.guru99.com/V4/");
-		Thread.sleep(2000);
 
-		driver.findElement(By.id("user-name"))
+			// open empty browser
+						WebDriver driver = new ChromeDriver();
+					driver.get("https://www.demo.guru99.com/V4/");
+					Thread.sleep(2000);
+			
+
+		driver.findElement(By.name("uid"))
 		.sendKeys(data[i][0]);
 		Thread.sleep(2000);
 
-		driver.findElement(By.id("password"))
+		driver.findElement(By.name("password"))
 		.sendKeys(data[i][1]);
 		Thread.sleep(2000);
 
-		driver.findElement(By.id("login-button")).click();
+		driver.findElement(By.name("btnLogin")).click();
 
 		Thread.sleep(2000);
-		driver.close();
-	}
-	}	
+		
+		
+		
+		
+		// Check if login failed by checking for alert or presence of manager page
+        boolean testPassed = false;
+       // try {
+            if (driver.getPageSource().contains("Manager Id")) {
+                testPassed = true;
+                System.out.println("Test Case " + (i+1) + ": PASS");
+            } else {
+            	// screen shot
+            	System.out.println("Test Case " + (i+1) + ": FAIL");
+File source_file =((RemoteWebDriver) driver).getScreenshotAs(OutputType.FILE);
+    			
+    			
+    			// to save ss in file
+    			File dest_file = new File("D:\\selenium\\Screenshot\\defect"+(i+1)+".png");
+    			
+    			// to open a destination file
+    			 
+    				try(FileOutputStream fos = new FileOutputStream(dest_file)){
+    					
+    				// to read from file
+    				byte[] fileContent= Files.readAllBytes(source_file.toPath());
+    				fos.write(fileContent);
+            }
+               // throw new Exception("Login failed");
+                
+           // }
+       // } catch (Exception e) {
+            //System.out.println("Test Case " + (i+1) + ": FAIL");
+            
 
+		
+	}
+	}
+		
+
+	}
 }
